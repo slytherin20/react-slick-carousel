@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import images from "./data/data";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App images={images} width="100%" height="400px" />
   </React.StrictMode>,
   document.getElementById('root')
 );

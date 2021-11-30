@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function App({images,width,height}) {
+  let imageCount=0,dotsCount=0;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{
+      width: width,
+      height: height
+    }}>
+      { 
+        images.map((image)=>{
+          imageCount++;
+         return  <div key={imageCount} className="slides">
+              <img src={image} alt="slide" className="slide"/>
+            </div>
+        }
+        )}
+        <span className="slide-to">&#10094;</span>
+        <span className="slide-to">&#10095;</span>
+        <div className="dots-container">
+        {
+        images.map(()=>
+        {
+          dotsCount++;
+          return <div key={dotsCount} className="dots">
+          </div>
+        }
+        )}
+        </div>
     </div>
   );
 }
